@@ -3,6 +3,7 @@ package com.yt.service
 import com.alibaba.druid.pool.DruidDataSource
 import com.yt.service.entiy.Banks
 import com.yt.service.entiy.Merchant
+import com.yt.service.entiy.Orders
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -30,8 +31,8 @@ class PublishEndpoint : ApplicationRunner {
     override fun run(args: ApplicationArguments?) {
         Database.connect(dataSour!!)
         transaction {
-           // SchemaUtils.drop(Merchant)
-            SchemaUtils.create(Merchant, Banks)
+           // SchemaUtils.drop(Orders)
+            SchemaUtils.create(Merchant, Banks, Orders)
         }
     }
 

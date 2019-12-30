@@ -24,7 +24,7 @@
           "target": "_self",
           "child": [
             {
-              "title": "主页一",
+              "title": "概览",
               "href": "/page/welcome.html",
               "icon": "fa fa-tachometer",
               "target": "_self"
@@ -38,8 +38,8 @@
           ]
         },
         {
-          "title": "菜单管理",
-          "href": "/page/menu.html",
+          "title": "订单管理",
+          "href": "/page/orderlist.html",
           "icon": "fa fa-window-maximize",
           "target": "_self"
         },

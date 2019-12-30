@@ -16,45 +16,42 @@ val gson = Gson()
 val fieldsMaps = HashMap<String, ArrayList<Field>>()
 
 
-fun <T : Table> ResultRow.toJson(table: T): String {
+fun <T : Table> ResultRow.toJson(tables: Array<T>): String {
     val stringBuilder = StringBuilder("{")
-    if (fieldsMaps.containsKey(table::class.java.name)) {
-        fieldsMaps[table::class.java.name]?.forEach { field ->
-            if (field.type.name == Column::class.java.name) {
-                field.isAccessible = true
-                val column = field.get(table)
-                val value = get(column as Column<*>)
-                val key = field.name
-                stringBuilder.append("\"${key}\":\"${value}\",")
+    tables.forEach { table ->
+        if (fieldsMaps.containsKey(table::class.java.name)) {
+            fieldsMaps[table::class.java.name]?.forEach { field ->
+                if (field.type.name == Column::class.java.name) {
+                    field.isAccessible = true
+                    val column = field.get(table)
+                    val value = get(column as Column<*>)
+                    val key = field.name
+                    stringBuilder.append("\"${key}\":\"${value}\",")
+                }
+            }
+
+        } else {
+            fieldsMaps[table::class.java.name] = ArrayList()
+            table::class.java.declaredFields.forEach { field ->
+                if (field.type.name == Column::class.java.name) {
+                    field.isAccessible = true
+                    fieldsMaps[table::class.java.name]?.add(field)
+                    val column = field.get(table)
+                    val value = get(column as Column<*>)
+                    val key = field.name
+                    stringBuilder.append("\"${key}\":\"${value}\",")
+                }
             }
         }
-        return stringBuilder.toString().let {
-            it.substring(0, it.lastIndex)
-        } + "}"
-    } else {
-        fieldsMaps[table::class.java.name] = ArrayList()
-        table::class.java.declaredFields.forEach { field ->
-            if (field.type.name == Column::class.java.name) {
-                field.isAccessible = true
-                fieldsMaps[table::class.java.name]?.add(field)
-                val column = field.get(table)
-                val value = get(column as Column<*>)
-                val key = field.name
-                stringBuilder.append("\"${key}\":\"${value}\",")
-            }
-        }
-        return stringBuilder.toString().let {
-            it.substring(0, it.lastIndex)
-        } + "}"
     }
+
+    return stringBuilder.toString().let {
+        it.substring(0, it.lastIndex)
+    } + "}"
 }
 
-fun <T : Table, V> ResultRow.toTye(table: T, clazz: Class<V>): V {
-    return if (fieldsMaps.containsKey(table::class.java.name)) {
-        gson.fromJson<V>(toJson(table), clazz)
-    } else {
-        gson.fromJson<V>(toJson(table), clazz)
-    }
+fun <T : Table, V> ResultRow.toTye(clazz: Class<V>, vararg tables: T): V {
+    return gson.fromJson<V>(toJson(tables), clazz)
 }
 
 
@@ -81,12 +78,17 @@ fun <T : Table> UpdateBuilder<Number>.toTable(table: T, value: Any) {
     }
     fieldsMaps[value::class.java.name] = valueFields
 
-    valueFields.forEach { valueField ->
-        val field = tabFields.firstOrNull { it.name == valueField.name }
-        val column = field?.get(table)
+    tabFields.forEach { tableField ->
+        val valuefield = valueFields.firstOrNull { it.name == tableField.name }
+        val column = tableField.get(table)
         if (column != null) {
-            if (field.name != "id") {
-                set(column as Column<Any>, valueField.get(value))
+            val nullable = (column as Column<Any>).columnType.nullable
+            var invokeValue = valuefield?.get(value)
+            if (invokeValue != null && invokeValue::class.java.isEnum) {
+                invokeValue = (invokeValue as Enum<*>).ordinal
+            }
+            if (!(invokeValue == null && !nullable) && invokeValue != null) {
+                set(column, invokeValue)
             }
         }
     }

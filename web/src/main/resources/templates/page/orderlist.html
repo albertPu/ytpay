@@ -53,7 +53,7 @@
             <button class="layui-btn data-add-btn">添加</button>
             <button class="layui-btn layui-btn-danger data-delete-btn">删除</button>
         </div>
-        <table class="layui-hide" id="bankTableId" lay-filter="currentTableFilter"></table>
+        <table class="layui-hide" id="orderTableId" lay-filter="currentTableFilter"></table>
         <script type="text/html" id="currentTableBar">
             <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
             <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
@@ -65,43 +65,33 @@
 
     <div class="edform-background" align="center">
 
-        <form class="layui-form" lay-filter="bankform">
+        <form class="layui-form" lay-filter="orderform">
 
-            <div class="layui-form-item">
-                <input id="bankId" type="text" name="id" placeholder="ID" autocomplete="off" class="layui-input" disabled>
+            <div class="layui-form-item" style="display: none">
+                <input type="text" name="id" placeholder="" autocomplete="off" class="layui-input" disabled>
             </div>
-
-            <div class="layui-form-item">
-                <input type="text" name="userName" lay-verify="required" placeholder="开户姓名" autocomplete="off" class="layui-input">
-            </div>
-
-            <div class="layui-form-item">
-                <input type="text" name="bankCode" lay-verify="required" placeholder="银行编码" autocomplete="off" class="layui-input">
+            <div class="layui-form-item" style="display: none">
+                <input type="text" name="orderMoney" placeholder="" autocomplete="off" class="layui-input" disabled>
             </div>
             <div class="layui-form-item">
-                <input type="text" name="bankNo" lay-verify="required" placeholder="账号" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-item">
-                <input type="text" name="bankName" lay-verify="required" placeholder="银行名称" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-item">
-                <input type="text" name="bankAddress" lay-verify="required" placeholder="开户地址" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-item">
-                <input type="text" name="preDayLimitMoney" lay-verify="required" placeholder="每日限额" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-item">
-                <input type="text" name="todyMoney" lay-verify="required" placeholder="今日入账" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-item">
-                <input type="text" name="totalMoney" lay-verify="required" placeholder="总入账" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-form-item">
-                <input type="text" name="bankBalance" lay-verify="required" placeholder="余额" autocomplete="off" class="layui-input">
+                <input type="text" name="orderNo" placeholder="" autocomplete="off" class="layui-input" disabled>
             </div>
 
             <div class="layui-form-item">
-                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="banksave">保存</button>
+                <label class="layui-form-label">订单状态</label>
+                <div class="layui-input-block">
+                    <select name="payState" lay-verify="required">
+                        <option value=""></option>
+                        <option value="0">未支付</option>
+                        <option value="1">已支付</option>
+                        <option value="2">已取消</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="ordersave">保存</button>
             </div>
         </form>
     </div>
@@ -117,21 +107,17 @@
         let saveWindow = 0;
 
         table.render({
-            elem: '#bankTableId',
-            url: '[[${bankList}]]',
+            elem: '#orderTableId',
+            url: '[[${orderList}]]',
             cols: [
                 [
                     {type: "checkbox", width: 50, fixed: "left"},
                     {field: 'id', width: 80, title: 'ID', sort: true},
-                    {field: 'userName', width: 120, title: '开户姓名'},
-                    {field: 'bankCode', width: 120, title: '银行编码', sort: true},
+                    {field: 'orderNo', width: 120, title: '订单编号'},
+                    {field: 'orderMoney', width: 120, title: '金额', sort: true},
+                    {field: 'payStateDesc', width: 200, title: '订单状态', align: "center"},
                     {field: 'bankNo', width: 200, title: '账号', align: "center"},
                     {field: 'bankName', title: '银行名称', minWidth: 150},
-                    {field: 'bankAddress', width: 150, title: '开户地址'},
-                    {field: 'preDayLimitMoney', width: 150, title: '每日限额', sort: true},
-                    {field: 'todyMoney', width: 150, title: '今日入账', sort: true},
-                    {field: 'totalMoney', width: 150, title: '总入账', sort: true},
-                    {field: 'bankBalance', width: 135, title: '余额', sort: true},
                     {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
                 ]
             ],
@@ -159,7 +145,7 @@
         form.on('submit(data-search-btn)', function (data) {
             const result = JSON.stringify(data.field);
             //执行搜索重载
-            table.reload('bankTableId', {
+            table.reload('orderTableId', {
                 page: {
                     curr: 1
                 }
@@ -171,9 +157,9 @@
         });
 
 
-        form.on('submit(banksave)', function (data) {
+        form.on('submit(ordersave)', function (data) {
             $.post({
-                url: '[[${bankListSave}]]',
+                url: '[[${orderListSave}]]',
                 data: JSON.stringify(data.field),
                 dataType: "json",
                 contentType: 'application/json',
@@ -181,8 +167,8 @@
                     if (res.success) {
                         layer.msg("操作成功");
                         layer.close(saveWindow);
-                        table.reload('bankTableId', {
-                            url: '[[${bankList}]]',
+                        table.reload('orderTableId', {
+                            url: '[[${orderList}]]',
                             page: {
                                 curr: 1
                             }
@@ -200,14 +186,14 @@
 
         // 监听删除操作
         $(".data-delete-btn").on("click", function () {
-            const checkStatus = table.checkStatus('bankTableId')
+            const checkStatus = table.checkStatus('orderTableId')
                 , data = checkStatus.data;
             layer.alert(JSON.stringify(data));
         });
 
         // 监听添加操作
         $(".data-add-btn").on("click", function () {
-            form.val("bankform", {
+            form.val("orderform", {
                 'id': "",
                 'userName': "",
                 'bankCode': "",
@@ -230,10 +216,12 @@
         table.on('tool(currentTableFilter)', function (obj) {
             const data = obj.data;
             if (obj.event === 'edit') {
-                form.val("bankform", {
+                form.val("orderform", {
                     'id': data.id,
-                    'userName': data.userName,
-                    'bankCode': data.bankCode,
+                    'orderNo': data.orderNo,
+                    'orderMoney': data.orderMoney,
+                    'payStateDesc': data.payStateDesc,
+                    'payState': data.payState,
                     'bankNo': data.bankNo,
                     'bankName': data.bankName,
                     'bankAddress': data.bankAddress,

@@ -41,7 +41,7 @@ class LoginRestfulController : BaseController() {
     fun loginUser(@RequestBody login: LoginVoRequest, request: HttpServletRequest): String {
         val response = loginService?.getLoin(login) ?: throw WebException("用户名或密码错误")
         request.session?.setAttribute(WebPath.sessionId, response.data)
-        return succees(response)
+        return succees()
     }
 }
 

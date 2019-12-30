@@ -2,8 +2,8 @@ package com.yt.service.controller
 
 import com.yt.appcommon.WebPath
 import com.yt.appcommon.base.BaseController
-import com.yt.appcommon.vo.BankVO
-import com.yt.service.web.BankService
+import com.yt.appcommon.vo.OrderVO
+import com.yt.service.web.OrderService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.RestController
  *Create By Albert on 2019/12/29
  */
 @RestController
-class BankController : BaseController() {
+class OrderController : BaseController() {
 
     @Autowired
-    lateinit var bankService: BankService
+    lateinit var orderService: OrderService
 
-    @RequestMapping(WebPath.bankServiceList, method = [RequestMethod.POST])
-    fun bankList(@RequestBody(required = false) bank: BankVO?): Any {
-        val row = bankService.getBankList(bank)
+    @RequestMapping(WebPath.orderServiceList, method = [RequestMethod.POST])
+    fun orderList(@RequestBody(required = false) order: OrderVO?): Any {
+        val row = orderService.getOrderList(order)
         return succeesData(row)
     }
 
-    @RequestMapping(WebPath.bankServiceListSave, method = [RequestMethod.POST])
-    fun bankSave(@RequestBody bank: BankVO): Any {
-        bankService.saveOrUpdate(bank)
+    @RequestMapping(WebPath.orderServiceListSave, method = [RequestMethod.POST])
+    fun orderSave(@RequestBody order: OrderVO): Any {
+        orderService.saveOrUpdate(order)
         return succeesData()
     }
 

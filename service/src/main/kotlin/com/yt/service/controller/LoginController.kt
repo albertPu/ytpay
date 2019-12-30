@@ -28,6 +28,6 @@ class LoginController : BaseController() {
     @RequestMapping(WebPath.serviceLoginUrl, method = [RequestMethod.POST])
     fun loginUser(@RequestBody login: LoginVoRequest, request: HttpServletRequest): Any {
         val row = loginService.loginByNameAndPassWord(login.password ?: "", login.username ?: "") ?: throw WebException("用户名或密码错误")
-        return succeesData(row.toTye(Merchant, MerchantResponse::class.java))
+        return succeesData(row.toTye(MerchantResponse::class.java, Merchant))
     }
 }

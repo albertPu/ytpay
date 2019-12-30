@@ -62,3 +62,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:9000/eureka/
+    registry-fetch-interval-seconds: 3
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+  server:
+    max-time-for-replication: 3000
+    response-cache-update-interval-ms: 3000

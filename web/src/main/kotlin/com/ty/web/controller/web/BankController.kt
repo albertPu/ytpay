@@ -3,7 +3,8 @@ package com.ty.web.controller.web
 import com.ty.web.remote.ServiceFeign
 import com.yt.appcommon.WebPath
 import com.yt.appcommon.base.BaseController
-import com.yt.appcommon.vo.BankListResponse
+import com.yt.appcommon.utils.gson
+import com.yt.appcommon.vo.BankVO
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -30,13 +31,17 @@ class BankRestfulController : BaseController() {
     lateinit var remoteService: ServiceFeign
 
     @GetMapping(WebPath.bankListJson)
-    fun bankList(@RequestParam page: Int, @RequestParam limit: Int): Any {
-        return remoteService.getBanks()
+    fun bankList(@RequestParam page: Int, @RequestParam limit: Int, @RequestParam(required = false) searchParams: String?): Any {
+        var bankListResponse: BankVO? = BankVO()
+        if (searchParams != null) {
+            bankListResponse = gson.fromJson<BankVO>(searchParams, BankVO::class.java)
+        }
+        return remoteService.banksList(bankListResponse)
     }
 
     @PostMapping(WebPath.bankListSave)
-    fun bankSave(@RequestBody bank: BankListResponse): Any {
-        remoteService.saveOrUpdate(bank)
+    fun bankSave(@RequestBody bank: BankVO): Any {
+        remoteService.bankSaveOrUpdate(bank)
         return succees()
     }
 
