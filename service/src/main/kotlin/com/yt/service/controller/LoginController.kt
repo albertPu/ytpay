@@ -21,9 +21,9 @@ import javax.servlet.http.HttpServletRequest
  */
 @RestController
 class LoginController : BaseController() {
+
     @Autowired
     lateinit var loginService: LoginService
-
 
     @RequestMapping(WebPath.serviceLoginUrl, method = [RequestMethod.POST])
     fun loginUser(@RequestBody login: LoginVoRequest, request: HttpServletRequest): Any {

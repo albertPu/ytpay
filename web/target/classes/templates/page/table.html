@@ -59,7 +59,8 @@
         table.render({
             elem: '#currentTableId',
             url: 'api/table.json',
-            cols: [[
+            cols: [
+                [
                 {type: "checkbox", width: 50, fixed: "left"},
                 {field: 'id', width: 80, title: 'ID', sort: true},
                 {field: 'username', width: 80, title: '用户名'},
@@ -71,7 +72,8 @@
                 {field: 'classify', width: 80, title: '职业'},
                 {field: 'wealth', width: 135, title: '财富', sort: true},
                 {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
-            ]],
+            ]
+            ],
             limits: [10, 15, 20, 25, 50, 100],
             limit: 15,
             page: true

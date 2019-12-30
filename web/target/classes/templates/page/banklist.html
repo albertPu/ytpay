@@ -1,0 +1,272 @@
+<style>
+
+    .edform-background {
+        width: 500px;
+        height: 300px;
+        position: absolute;
+        margin-left: 100px;
+        margin-top: 30px;
+    }
+</style>
+
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <fieldset class="layui-elem-field layuimini-search">
+            <legend>搜索信息</legend>
+            <div style="margin: 10px 10px 10px 10px">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">开户姓名</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="bankNo" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">银行卡号码</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="sex" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">银行名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="city" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">银行地址</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="classify" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <a class="layui-btn" lay-submit="bankSerach" lay-filter="data-search-btn">搜索</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </fieldset>
+
+        <div class="layui-btn-group">
+            <button class="layui-btn data-add-btn">添加</button>
+            <button class="layui-btn layui-btn-danger data-delete-btn">删除</button>
+        </div>
+        <table class="layui-hide" id="bankTableId" lay-filter="currentTableFilter"></table>
+        <script type="text/html" id="currentTableBar">
+            <a class="layui-btn layui-btn-xs data-count-edit" lay-event="edit">编辑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger data-count-delete" lay-event="delete">删除</a>
+        </script>
+    </div>
+</div>
+
+<div id="edite_form" style="display: none">
+
+    <div class="edform-background" align="center">
+
+        <form class="layui-form" lay-filter="bankform">
+
+            <div class="layui-form-item">
+                <input id="bankId" type="text" name="id" placeholder="ID" autocomplete="off" class="layui-input" disabled>
+            </div>
+
+            <div class="layui-form-item">
+                <input type="text" name="userName" lay-verify="required" placeholder="开户姓名" autocomplete="off" class="layui-input">
+            </div>
+
+            <div class="layui-form-item">
+                <input type="text" name="bankCode" lay-verify="required" placeholder="银行编码" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="bankNo" lay-verify="required" placeholder="账号" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="bankName" lay-verify="required" placeholder="银行名称" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="bankAddress" lay-verify="required" placeholder="开户地址" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="preDayLimitMoney" lay-verify="required" placeholder="每日限额" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="todyMoney" lay-verify="required" placeholder="今日入账" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="totalMoney" lay-verify="required" placeholder="总入账" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+                <input type="text" name="bankBalance" lay-verify="required" placeholder="余额" autocomplete="off" class="layui-input">
+            </div>
+
+            <div class="layui-form-item">
+                <button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="banksave">保存</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+<script>
+    layui.use(['form', 'table'], function () {
+        const $ = layui.jquery,
+            form = layui.form,
+            table = layui.table;
+        let saveWindow = 0;
+
+        table.render({
+            elem: '#bankTableId',
+            url: '[[${bankList}]]',
+            cols: [
+                [
+                    {type: "checkbox", width: 50, fixed: "left"},
+                    {field: 'id', width: 80, title: 'ID', sort: true},
+                    {field: 'userName', width: 120, title: '开户姓名'},
+                    {field: 'bankCode', width: 120, title: '银行编码', sort: true},
+                    {field: 'bankNo', width: 200, title: '账号', align: "center"},
+                    {field: 'bankName', title: '银行名称', minWidth: 150},
+                    {field: 'bankAddress', width: 150, title: '开户地址'},
+                    {field: 'preDayLimitMoney', width: 150, title: '每日限额', sort: true},
+                    {field: 'todyMoney', width: 150, title: '今日入账', sort: true},
+                    {field: 'totalMoney', width: 150, title: '总入账', sort: true},
+                    {field: 'bankBalance', width: 135, title: '余额', sort: true},
+                    {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+                ]
+            ],
+            limits: [10, 15, 20, 25, 50, 100],
+            limit: 15,
+            page: true,
+            response: {
+                statusName: "code",
+                statusCode: 0,
+                msgName: "message",
+                countName: "totalPage",
+                dataName: "data"
+            },
+            parseData: function (resp) {
+                return {
+                    "code": resp.code,
+                    "msg": resp.message,
+                    "count": resp.totalPage,
+                    "data": resp.data
+                }
+            }
+        });
+
+        // 监听搜索操作
+        form.on('submit(data-search-btn)', function (data) {
+            const result = JSON.stringify(data.field);
+            layer.alert(result, {
+                title: '最终的搜索信息'
+            });
+
+            //执行搜索重载
+            table.reload('bankTableId', {
+                page: {
+                    curr: 1
+                }
+                , where: {
+                    searchParams: result
+                }
+            }, 'data');
+
+            return false;
+        });
+
+        form.on('submit(bankSerach)', function (data) {
+
+        });
+
+        form.on('submit(banksave)', function (data) {
+            $.post({
+                url: '[[${bankListSave}]]',
+                data: JSON.stringify(data.field),
+                dataType: "json",
+                contentType: 'application/json',
+                success: function (res) {
+                    if (res.success) {
+                        layer.msg("操作成功");
+                        layer.close(saveWindow);
+                        table.reload('bankTableId', {
+                            url: '[[${bankList}]]',
+                            page: {
+                                curr: 1
+                            }
+                        });
+                    } else {
+                        layer.msg(res.data.message)
+                    }
+                },
+                error: function (res) {
+                    layer.msg(res)
+                }
+            });
+            return false;
+        });
+
+        // 监听删除操作
+        $(".data-delete-btn").on("click", function () {
+            const checkStatus = table.checkStatus('bankTableId')
+                , data = checkStatus.data;
+            layer.alert(JSON.stringify(data));
+        });
+
+        // 监听添加操作
+        $(".data-add-btn").on("click", function () {
+            form.val("bankform", {
+                'id': "",
+                'userName': "",
+                'bankCode': "",
+                'bankNo': "",
+                'bankName': "",
+                'bankAddress': "",
+                'todyMoney': "",
+                'totalMoney': "",
+                'bankBalance': "",
+                'preDayLimitMoney': "",
+            });
+            openBankWindow()
+        });
+
+        //监听表格复选框选择
+        table.on('checkbox(currentTableFilter)', function (obj) {
+            console.log(obj)
+        });
+
+        table.on('tool(currentTableFilter)', function (obj) {
+            const data = obj.data;
+            if (obj.event === 'edit') {
+                form.val("bankform", {
+                    'id': data.id,
+                    'userName': data.userName,
+                    'bankCode': data.bankCode,
+                    'bankNo': data.bankNo,
+                    'bankName': data.bankName,
+                    'bankAddress': data.bankAddress,
+                    'todyMoney': data.todyMoney,
+                    'totalMoney': data.totalMoney,
+                    'bankBalance': data.bankBalance,
+                    'preDayLimitMoney': data.preDayLimitMoney,
+                });
+                openBankWindow()
+            } else if (obj.event === 'delete') {
+                layer.confirm('真的删除行么', function (index) {
+                    obj.del();
+                    layer.close(index);
+                });
+            }
+        });
+
+        function openBankWindow() {
+            saveWindow = layer.open({
+                type: 1,
+                area: ['700px', '700px'],
+                shade: 0,
+                content: $("#edite_form")
+            });
+        }
+
+    });
+</script>

@@ -8,4 +8,5 @@ class BaseResponse<T> {
     var data: T? = null
     var message = ""
     var success = true
+    var totalPage: Int? = null
 }

@@ -6,11 +6,12 @@ import org.jetbrains.exposed.sql.and
 import org.jetbrains.exposed.sql.select
 import org.jetbrains.exposed.sql.transactions.transaction
 import org.springframework.stereotype.Component
+import org.springframework.stereotype.Service
 
 /**
  *Create By Albert on 2019/12/28
  */
-@Component
+@Service
 class LoginService {
 
     fun loginByNameAndPassWord(password: String, merchantName: String): ResultRow? {

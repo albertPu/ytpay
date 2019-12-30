@@ -1,11 +1,11 @@
 class Api {
 
     static post(url, data, success, error) {
-        $.ajax({
+        $.post({
             url: url,
             data: data,
-            type: "Post",
             dataType: "json",
+            contentType: 'application/json',
             success: function (data) {
                 if (data.success) {
                     success(data)
@@ -38,3 +38,22 @@ class Api {
         });
     }
 }
+
+post = function post(url, data, success, error) {
+    $.post({
+        url: url,
+        data: data,
+        dataType: "json",
+        contentType: 'application/json',
+        success: function (data) {
+            if (data.success) {
+                success(data)
+            } else {
+                error(data)
+            }
+        },
+        error: function (data) {
+            error(data)
+        }
+    });
+};

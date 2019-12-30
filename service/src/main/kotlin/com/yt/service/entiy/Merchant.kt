@@ -5,7 +5,7 @@ import org.jetbrains.exposed.sql.Table
 /**
  *Create By Albert on 2019/12/27
  */
-object Merchant : Table() {
+object Merchant : BaseTable() {
 
     val id = integer("id").autoIncrement().primaryKey()
 

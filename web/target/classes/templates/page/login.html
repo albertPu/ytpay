@@ -186,7 +186,7 @@
                 return false;
             }
 
-            Api.post("[[${loginUrl}]]", data, function (rp) {
+            Api.post("[[${loginUrl}]]", JSON.stringify(data), function (rp) {
                 if (isChecked) {
                     $.cookie("name", data.username);
                     $.cookie("password", data.password);

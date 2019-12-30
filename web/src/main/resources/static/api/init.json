@@ -30,8 +30,8 @@
               "target": "_self"
             },
             {
-              "title": "主页二",
-              "href": "page/welcome-2.html",
+              "title": "银行卡列表",
+              "href": "/page/banklist.html",
               "icon": "fa fa-tachometer",
               "target": "_self"
             }
@@ -51,7 +51,7 @@
         },
         {
           "title": "表格示例",
-          "href": "page/table.html",
+          "href": "/page/table.html",
           "icon": "fa fa-file-text",
           "target": "_self"
         },
