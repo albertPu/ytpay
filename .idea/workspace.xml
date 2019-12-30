@@ -2,88 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1cf1be5-c29d-4f5c-93b8-8facf838b5e2" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/vo/BankListResponse.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/controller/BankController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/entiy/Banks.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/entiy/BaseTable.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/web/BankService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/controller/web/BankController.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/src/main/resources/templates/page/banklist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/WebPath.kt" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/WebPath.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/utils/Ext.kt" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/utils/Ext.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/vo/BaseResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/src/main/kotlin/com/yt/appcommon/vo/BaseResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/META-INF/appcommon.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/META-INF/appcommon.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/AppcommonApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/AppcommonApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/AppcommonApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/AppcommonApplicationKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/WebPath.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/WebPath.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/base/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/base/BaseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/utils/ExtKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/utils/ExtKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/vo/BaseResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/vo/BaseResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/vo/LoginVoRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/vo/LoginVoRequest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/vo/MerchantResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/classes/com/yt/appcommon/vo/MerchantResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/test-classes/META-INF/appcommon.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/test-classes/META-INF/appcommon.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appcommon/target/test-classes/com/yt/appcommon/AppcommonApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/appcommon/target/test-classes/com/yt/appcommon/AppcommonApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/target/classes/META-INF/eurekaservce.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/target/classes/META-INF/eurekaservce.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/target/classes/com/yt/eurekaservce/EurekaservceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/target/classes/com/yt/eurekaservce/EurekaservceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/target/classes/com/yt/eurekaservce/EurekaservceApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/target/classes/com/yt/eurekaservce/EurekaservceApplicationKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/target/test-classes/META-INF/eurekaservce.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/target/test-classes/META-INF/eurekaservce.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaservce/target/test-classes/com/yt/eurekaservce/EurekaservceApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaservce/target/test-classes/com/yt/eurekaservce/EurekaservceApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/ServiceApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/ServiceApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/controller/LoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/controller/LoginController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/entiy/Merchant.kt" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/entiy/Merchant.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/web/LoginService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/web/LoginService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/META-INF/service.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/META-INF/service.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/PublishEndpoint$run$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/PublishEndpoint$run$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/PublishEndpoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/PublishEndpoint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/ServiceApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/ServiceApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/ServiceApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/ServiceApplicationKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/entiy/Merchant.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/entiy/Merchant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/glob/MyExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/glob/MyExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/glob/WebException.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/glob/WebException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/web/LoginService$loginByNameAndPassWord$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/web/LoginService$loginByNameAndPassWord$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/classes/com/yt/service/web/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/classes/com/yt/service/web/LoginService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/test-classes/META-INF/service.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/test-classes/META-INF/service.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/target/test-classes/com/yt/service/ServiceApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/service/target/test-classes/com/yt/service/ServiceApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/controller/web/HomeController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/controller/web/HomeController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/controller/web/LoginController.kt" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/controller/web/LoginController.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/remote/LoginService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web/remote/ServiceFeign.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/static/api/init.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/static/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/static/js/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/page/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/page/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/page/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/page/table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/main/resources/templates/page/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/main/resources/templates/page/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/META-INF/web.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/META-INF/web.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/WebApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/WebApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/WebApplicationKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/WebApplicationKt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/AppErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/AppErrorController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/LoginRestfulController.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/controller/web/LoginRestfulController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/MyExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/MyExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/WebAppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/WebAppConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/WebException.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/WebException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/interceptor/SessionInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/com/ty/web/glob/interceptor/SessionInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/com/ty/web/remote/LoginService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/static/api/init.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/static/api/init.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/static/js/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/static/js/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/templates/page/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/templates/page/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/templates/page/table.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/templates/page/table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/classes/templates/page/welcome.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/classes/templates/page/welcome.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/test-classes/META-INF/web.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/test-classes/META-INF/web.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/target/test-classes/com/ty/web/WebApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/web/target/test-classes/com/ty/web/WebApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +105,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/src/main/resources/templates/page" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -207,11 +127,11 @@
       <recent name="com.yt.appcommon" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/web/src/main/resources/templates/page" />
       <recent name="$PROJECT_DIR$/service/src/main/kotlin/com/yt/service/glob" />
       <recent name="$PROJECT_DIR$/eureka" />
       <recent name="$PROJECT_DIR$/web/src/main/kotlin/com/ty/web" />
-      <recent name="$PROJECT_DIR$/web/src/main/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -289,7 +209,7 @@
       <option name="presentableId" value="Default" />
       <updated>1577594940080</updated>
       <workItem from="1577594941297" duration="29355000" />
-      <workItem from="1577682713657" duration="7389000" />
+      <workItem from="1577682713657" duration="7809000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1577605250284</created>
@@ -298,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577605250284</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="银行卡管理">
+      <created>1577690480579</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577690480579</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +233,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="银行卡管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="银行卡管理" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2480" y="217" key="#Project_Structure" timestamp="1577601105196">
@@ -338,60 +266,61 @@
       <screen x="1920" y="23" width="1920" height="1057" />
     </state>
     <state x="2652" y="211" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577602845263" />
-    <state x="2461" y="154" key="CommitChangelistDialog2" timestamp="1577605470244">
-      <screen x="1920" y="23" width="1920" height="1057" />
+    <state x="2638" y="237" key="CommitChangelistDialog2" timestamp="1577690731045">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="2638" y="237" key="CommitChangelistDialog2/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690731045" />
     <state x="2461" y="154" key="CommitChangelistDialog2/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577605470244" />
     <state width="457" height="466" key="DebuggerActiveHint" timestamp="1577687862839">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="457" height="466" key="DebuggerActiveHint/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577687862839" />
-    <state width="1334" height="294" key="GridCell.Tab.0.bottom" timestamp="1577689386353">
+    <state width="1334" height="344" key="GridCell.Tab.0.bottom" timestamp="1577690634228">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386353" />
+    <state width="1334" height="344" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634228" />
     <state width="1334" height="294" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204716" />
     <state width="1334" height="260" key="GridCell.Tab.0.bottom/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161499" />
-    <state width="1334" height="294" key="GridCell.Tab.0.center" timestamp="1577689386352">
+    <state width="1334" height="344" key="GridCell.Tab.0.center" timestamp="1577690634227">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386352" />
+    <state width="1334" height="344" key="GridCell.Tab.0.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634227" />
     <state width="1334" height="294" key="GridCell.Tab.0.center/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204714" />
     <state width="1334" height="260" key="GridCell.Tab.0.center/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161499" />
-    <state width="1334" height="294" key="GridCell.Tab.0.left" timestamp="1577689386351">
+    <state width="1334" height="344" key="GridCell.Tab.0.left" timestamp="1577690634227">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386351" />
+    <state width="1334" height="344" key="GridCell.Tab.0.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634227" />
     <state width="1334" height="294" key="GridCell.Tab.0.left/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204713" />
     <state width="1334" height="260" key="GridCell.Tab.0.left/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161498" />
-    <state width="1334" height="294" key="GridCell.Tab.0.right" timestamp="1577689386352">
+    <state width="1334" height="344" key="GridCell.Tab.0.right" timestamp="1577690634228">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386352" />
+    <state width="1334" height="344" key="GridCell.Tab.0.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634228" />
     <state width="1334" height="294" key="GridCell.Tab.0.right/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204715" />
     <state width="1334" height="260" key="GridCell.Tab.0.right/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161499" />
-    <state width="1334" height="294" key="GridCell.Tab.1.bottom" timestamp="1577689386348">
+    <state width="1334" height="344" key="GridCell.Tab.1.bottom" timestamp="1577690634230">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386348" />
+    <state width="1334" height="344" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634230" />
     <state width="1334" height="294" key="GridCell.Tab.1.bottom/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204720" />
     <state width="1334" height="260" key="GridCell.Tab.1.bottom/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161500" />
-    <state width="1334" height="294" key="GridCell.Tab.1.center" timestamp="1577689386347">
+    <state width="1334" height="344" key="GridCell.Tab.1.center" timestamp="1577690634229">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.1.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386347" />
+    <state width="1334" height="344" key="GridCell.Tab.1.center/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634229" />
     <state width="1334" height="294" key="GridCell.Tab.1.center/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204719" />
     <state width="1334" height="260" key="GridCell.Tab.1.center/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161499" />
-    <state width="1334" height="294" key="GridCell.Tab.1.left" timestamp="1577689386346">
+    <state width="1334" height="344" key="GridCell.Tab.1.left" timestamp="1577690634229">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.1.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386346" />
+    <state width="1334" height="344" key="GridCell.Tab.1.left/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634229" />
     <state width="1334" height="294" key="GridCell.Tab.1.left/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204719" />
     <state width="1334" height="260" key="GridCell.Tab.1.left/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161499" />
-    <state width="1334" height="294" key="GridCell.Tab.1.right" timestamp="1577689386348">
+    <state width="1334" height="344" key="GridCell.Tab.1.right" timestamp="1577690634229">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1334" height="294" key="GridCell.Tab.1.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577689386348" />
+    <state width="1334" height="344" key="GridCell.Tab.1.right/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690634229" />
     <state width="1334" height="294" key="GridCell.Tab.1.right/1920.0.1920.1080/0.23.1920.1057@1920.0.1920.1080" timestamp="1577689204720" />
     <state width="1334" height="260" key="GridCell.Tab.1.right/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577635161500" />
     <state width="1334" height="294" key="GridCell.Tab.2.bottom" timestamp="1577689386350">
@@ -422,9 +351,10 @@
       <screen x="1920" y="23" width="1920" height="1057" />
     </state>
     <state x="2389" y="190" key="SettingsEditor/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577608475754" />
-    <state x="2480" y="291" key="Vcs.Push.Dialog.v2" timestamp="1577605428137">
-      <screen x="1920" y="23" width="1920" height="1057" />
+    <state x="2480" y="274" key="Vcs.Push.Dialog.v2" timestamp="1577690486193">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="2480" y="274" key="Vcs.Push.Dialog.v2/1920.0.1920.1080/0.0.1920.1080@1920.0.1920.1080" timestamp="1577690486193" />
     <state x="2480" y="291" key="Vcs.Push.Dialog.v2/1920.23.1920.1057/0.23.1920.1057@1920.23.1920.1057" timestamp="1577605428137" />
     <state x="2609" y="224" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1577689179689">
       <screen x="1920" y="0" width="1920" height="1080" />
