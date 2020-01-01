@@ -91,6 +91,9 @@
                 <input type="text" name="preDayLimitMoney" lay-verify="required" placeholder="每日限额" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-item">
+                <input type="number" name="bankPhoneNo" lay-verify="required" placeholder="绑定电话" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-form-item">
                 <input type="text" name="todyMoney" lay-verify="required" placeholder="今日入账" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-form-item">
@@ -128,11 +131,12 @@
                     {field: 'bankNo', width: 200, title: '账号', align: "center"},
                     {field: 'bankName', title: '银行名称', minWidth: 150},
                     {field: 'bankAddress', width: 150, title: '开户地址'},
+                    {field: 'bankPhoneNo', width: 150, title: '绑定电话'},
                     {field: 'preDayLimitMoney', width: 150, title: '每日限额', sort: true},
                     {field: 'todyMoney', width: 150, title: '今日入账', sort: true},
                     {field: 'totalMoney', width: 150, title: '总入账', sort: true},
                     {field: 'bankBalance', width: 135, title: '余额', sort: true},
-                    {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+                    {title: '操作', minWidth: 150, templet: '#currentTableBar', fixed: "right", align: "center"}
                 ]
             ],
             limits: [10, 15, 20, 25, 50, 100],
@@ -218,6 +222,7 @@
                 'totalMoney': "",
                 'bankBalance': "",
                 'preDayLimitMoney': "",
+                'bankPhoneNo':""
             });
             openBankWindow()
         });
@@ -241,6 +246,7 @@
                     'totalMoney': data.totalMoney,
                     'bankBalance': data.bankBalance,
                     'preDayLimitMoney': data.preDayLimitMoney,
+                    'bankPhoneNo':data.bankPhoneNo
                 });
                 openBankWindow()
             } else if (obj.event === 'delete') {

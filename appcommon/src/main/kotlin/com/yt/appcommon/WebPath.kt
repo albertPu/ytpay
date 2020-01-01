@@ -31,4 +31,6 @@ object WebPath {
 
     const val welcomePage = "/page/welcome.html"
     const val tablePage = "/page/table.html"
+
+    const val payByBank="/pay/bank.html"
 }
