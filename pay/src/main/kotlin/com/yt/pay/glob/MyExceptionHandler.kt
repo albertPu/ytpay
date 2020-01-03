@@ -1,4 +1,4 @@
-package com.yt.service.glob
+package com.yt.pay.glob
 
 import com.yt.appcommon.vo.BaseResponse
 import com.yt.appcommon.utils.gson
@@ -14,7 +14,7 @@ class MyExceptionHandler {
 
     @ExceptionHandler(value = [Exception::class])
     @ResponseBody
-    fun exceptionHandler(e: Exception): BaseResponse<Any>? {
+    fun exceptionHandler(e: Exception): String? {
         val error = BaseResponse<Any>()
         error.success = false
         error.code = -1
@@ -23,7 +23,7 @@ class MyExceptionHandler {
         } else {
             error.message = e.message ?: ""
         }
-        return error
+        return gson.toJson(error)
     }
 
 }

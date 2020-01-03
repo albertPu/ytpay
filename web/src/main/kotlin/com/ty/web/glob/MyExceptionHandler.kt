@@ -14,7 +14,7 @@ class MyExceptionHandler {
 
     @ExceptionHandler(value = [Exception::class])
     @ResponseBody
-    fun exceptionHandler(e: Exception): String? {
+    fun exceptionHandler(e: Exception): Any? {
         val error = BaseResponse<Any>()
         error.success = false
         error.code = -1
@@ -23,7 +23,7 @@ class MyExceptionHandler {
         } else {
             error.message = e.cause?.toString() ?: ""
         }
-        return gson.toJson(error)
+        return error
     }
 
 }

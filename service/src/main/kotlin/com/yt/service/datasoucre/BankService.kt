@@ -1,4 +1,4 @@
-package com.yt.service.web
+package com.yt.service.datasoucre
 
 import com.yt.appcommon.utils.toTable
 import com.yt.appcommon.utils.toTye
@@ -15,18 +15,18 @@ import org.springframework.stereotype.Service
 @Service
 class BankService {
 
-    fun getBankList(bank: BankVO?): ArrayList<BankVO> {
+    fun getBankList(bank: BankVO?=null): ArrayList<BankVO> {
         val banks = ArrayList<BankVO>()
         transaction {
             if (bank == null) {
                 Banks.selectAll().forEach {
-                    val bank = it.toTye(BankVO::class.java, Banks)
-                    banks.add(bank)
+                    val bankType = it.toTye(BankVO::class.java, Banks)
+                    banks.add(bankType)
                 }
             } else {
                 val query = Banks.selectAll()
-                bank.userName?.let {
-                    if (it != "") query.andWhere { Banks.userName like "%${it}%" }
+                bank.bankUserName?.let {
+                    if (it != "") query.andWhere { Banks.bankUserName like "%${it}%" }
                 }
 
                 bank.bankNo?.let {
@@ -40,8 +40,8 @@ class BankService {
                     if (it != "") query.andWhere { Banks.bankAddress like "%${it}%" }
                 }
                 query.toSet().forEach {
-                    val bank = it.toTye(BankVO::class.java, Banks)
-                    banks.add(bank)
+                    val bankType = it.toTye(BankVO::class.java, Banks)
+                    banks.add(bankType)
                 }
             }
         }

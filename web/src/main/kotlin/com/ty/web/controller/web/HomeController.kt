@@ -2,7 +2,7 @@ package com.ty.web.controller.web
 
 import com.yt.appcommon.WebPath
 import com.yt.appcommon.base.BaseController
-import com.yt.appcommon.vo.MerchantResponse
+import com.yt.appcommon.vo.MerchantVO
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.RequestMapping
@@ -17,7 +17,7 @@ class HomeController : BaseController() {
 
     @RequestMapping(WebPath.homePage, method = [RequestMethod.GET])
     fun index(model: Model, httpRequest: HttpServletRequest): String {
-        val user = httpRequest.session?.getAttribute(WebPath.sessionId) as? MerchantResponse
+        val user = httpRequest.session?.getAttribute(WebPath.sessionId) as? MerchantVO
         model.addAttribute("user", user)
         return "index"
     }

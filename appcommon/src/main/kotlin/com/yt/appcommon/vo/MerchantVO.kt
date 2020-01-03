@@ -4,9 +4,9 @@ package com.yt.appcommon.vo
 /**
  *Create By Albert on 2019/12/28
  */
-class MerchantResponse {
+class MerchantVO {
 
-    val id = ""
+    val id: Long? = null
 
     val merchantNo = ""
 

@@ -6,9 +6,8 @@ import com.yt.appcommon.vo.LoginVoRequest
 import com.yt.service.entiy.Merchant
 import com.yt.service.glob.WebException
 import com.yt.appcommon.utils.toTye
-import com.yt.appcommon.vo.BaseResponse
-import com.yt.appcommon.vo.MerchantResponse
-import com.yt.service.web.LoginService
+import com.yt.appcommon.vo.MerchantVO
+import com.yt.service.datasoucre.MerchantService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -23,11 +22,11 @@ import javax.servlet.http.HttpServletRequest
 class LoginController : BaseController() {
 
     @Autowired
-    lateinit var loginService: LoginService
+    lateinit var loginService: MerchantService
 
     @RequestMapping(WebPath.serviceLoginUrl, method = [RequestMethod.POST])
     fun loginUser(@RequestBody login: LoginVoRequest, request: HttpServletRequest): Any {
-        val row = loginService.loginByNameAndPassWord(login.password ?: "", login.username ?: "") ?: throw WebException("用户名或密码错误")
-        return succeesData(row.toTye(MerchantResponse::class.java, Merchant))
+        val row = loginService.getByNameAndPassWord(login.password ?: "", login.username ?: "") ?: throw WebException("用户名或密码错误")
+        return succeesData(row.toTye(MerchantVO::class.java, Merchant))
     }
 }

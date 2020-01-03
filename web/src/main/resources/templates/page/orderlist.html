@@ -113,12 +113,12 @@
                 [
                     {type: "checkbox", width: 50, fixed: "left"},
                     {field: 'id', width: 80, title: 'ID', sort: true},
-                    {field: 'orderNo', width: 120, title: '订单编号'},
+                    {field: 'orderNo', width: 250, title: '订单编号'},
                     {field: 'orderMoney', width: 120, title: '金额', sort: true},
                     {field: 'payStateDesc', width: 200, title: '订单状态', align: "center"},
-                    {field: 'bankNo', width: 200, title: '账号', align: "center"},
-                    {field: 'bankName', title: '银行名称', minWidth: 150},
-                    {title: '操作', minWidth: 50, templet: '#currentTableBar', fixed: "right", align: "center"}
+                    {field: 'bankNo',  minWidth: 50, title: '账号', align: "center"},
+                    {field: 'bankName',width: 100, title: '银行名称'},
+                    {title: '操作',width: 150, templet: '#currentTableBar', fixed: "right", align: "center"}
                 ]
             ],
             limits: [10, 15, 20, 25, 50, 100],

@@ -5,8 +5,8 @@ package com.yt.appcommon.vo
  */
 class BankVO {
 
-    val id: Int? = 0
-    val userName: String? = null
+    val id: Long? = null
+    val bankUserName: String? = null
     val bankCode: String? = null
     val bankNo: String? = null
     val bankName: String? = null

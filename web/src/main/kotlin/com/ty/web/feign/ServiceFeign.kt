@@ -1,4 +1,4 @@
-package com.ty.web.remote
+package com.ty.web.feign
 
 import com.yt.appcommon.WebPath
 import com.yt.appcommon.vo.*
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody
 interface ServiceFeign {
 
     @PostMapping(value = [WebPath.serviceLoginUrl])
-    fun getLoin(@RequestBody login: LoginVoRequest): BaseResponse<MerchantResponse?>
+    fun getLoin(@RequestBody login: LoginVoRequest): BaseResponse<MerchantVO?>
 
 
 

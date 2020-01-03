@@ -8,7 +8,7 @@
 </head>
 <body style="background: #eeeeee">
 
-<div class="layui-container">
+<div class="layui-container" th:hidden="${payTimeOut}">
 
     <div class="layui-row" style="text-align: center;background:#fff;padding: 10px;margin-top: 20px;border-radius: 5px">
         <span style="color:red" id="timer"></span><span style="color:black">内完成付款</span>
@@ -95,6 +95,13 @@
 
 </div>
 
+<div class="layui-container" th:hidden="${!payTimeOut}" style="background: #eeeeee">
+    <div class="layui-row" style="text-align: center;background: white;line-height: 100px;border-radius: 5px;margin-top: 100px;">
+        <span> 订单已失效</span>
+    </div>
+
+</div>
+
 <script src="/static/layui/layui.all.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 <script>
@@ -113,25 +120,31 @@
             console.error('Trigger:', e.trigger);
         });
 
-        const intDiff = parseInt([[${payTime}]]);//倒计时总秒数量
-        function timer(intDiff){
-            window.setInterval(function(){
-                let day = 0,
-                    hour = 0,
-                    minute = 0,
-                    second = 0;//时间默认值       
-                if(intDiff > 0){
-                    day = Math.floor(intDiff / (60 * 60 * 24));
-                    hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
-                    minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
-                    second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
-                }
-                if (minute <= 9) minute = '0' + minute;
-                if (second <= 9) second = '0' + second;
-                $('#timer').html('<s></s>'+minute+'分'+second+'秒');
-                intDiff--;
-            }, 1000);
+        let intDiff = parseInt([[${payTime}]]);//倒计时总秒数量
+        function formatDate() {
+            let day = 0,
+                hour = 0,
+                minute = 0,
+                second = 0;//时间默认值       
+            if (intDiff > 0) {
+                day = Math.floor(intDiff / (60 * 60 * 24));
+                hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+            }
+            if (minute <= 9) minute = '0' + minute;
+            if (second <= 9) second = '0' + second;
+            $('#timer').html('<s></s>' + minute + '分' + second + '秒');
         }
+
+        function timer() {
+            window.setInterval(function () {
+                formatDate();
+                intDiff -= 1;
+            }, 1000);
+        }
+
+        formatDate();
         timer(intDiff)
     }();
 

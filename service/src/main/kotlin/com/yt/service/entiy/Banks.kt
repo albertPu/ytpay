@@ -1,14 +1,24 @@
 package com.yt.service.entiy
 
+import org.jetbrains.exposed.sql.CurrentDateTime
+import org.jetbrains.exposed.sql.Table
+
 
 /**
  *Create By Albert on 2019/12/29
  */
-object Banks : BaseTable() {
+object Banks : Table() {
 
-    val id = integer("id").autoIncrement().primaryKey()
+    val id = long("id").autoIncrement().primaryKey()
 
-    val userName = varchar("user_name", 128)
+    val createTime = datetime("create_time").defaultExpression(CurrentDateTime())
+
+    val updateTime = datetime("update_time").defaultExpression(CurrentDateTime())
+
+    val isDeleted = bool("is_delete").default(false)
+
+
+    val bankUserName = varchar("user_name", 128)
     val bankCode = varchar("bank_code", 128)
     val bankNo = varchar("bank_no", 128)
     val bankName = varchar("bank_name", 128)

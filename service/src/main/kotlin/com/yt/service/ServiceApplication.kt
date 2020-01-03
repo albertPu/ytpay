@@ -26,12 +26,12 @@ fun main(args: Array<String>) {
 class PublishEndpoint : ApplicationRunner {
 
     @Resource
-    var dataSour: DruidDataSource? = null
+    lateinit var dataSour: DruidDataSource
 
     override fun run(args: ApplicationArguments?) {
-        Database.connect(dataSour!!)
+        Database.connect(dataSour)
         transaction {
-           // SchemaUtils.drop(Orders)
+            // SchemaUtils.drop(Orders)
             SchemaUtils.create(Merchant, Banks, Orders)
         }
     }

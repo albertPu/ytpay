@@ -72,7 +72,7 @@
             </div>
 
             <div class="layui-form-item">
-                <input type="text" name="userName" lay-verify="required" placeholder="开户姓名" autocomplete="off" class="layui-input">
+                <input type="text" name="bankUserName" lay-verify="required" placeholder="开户姓名" autocomplete="off" class="layui-input">
             </div>
 
             <div class="layui-form-item">
@@ -126,7 +126,7 @@
                 [
                     {type: "checkbox", width: 50, fixed: "left"},
                     {field: 'id', width: 80, title: 'ID', sort: true},
-                    {field: 'userName', width: 120, title: '开户姓名'},
+                    {field: 'bankUserName', width: 120, title: '开户姓名'},
                     {field: 'bankCode', width: 120, title: '银行编码', sort: true},
                     {field: 'bankNo', width: 200, title: '账号', align: "center"},
                     {field: 'bankName', title: '银行名称', minWidth: 150},
@@ -213,7 +213,7 @@
         $(".data-add-btn").on("click", function () {
             form.val("bankform", {
                 'id': "",
-                'userName': "",
+                'bankUserName': "",
                 'bankCode': "",
                 'bankNo': "",
                 'bankName': "",
@@ -237,7 +237,7 @@
             if (obj.event === 'edit') {
                 form.val("bankform", {
                     'id': data.id,
-                    'userName': data.userName,
+                    'bankUserName': data.userName,
                     'bankCode': data.bankCode,
                     'bankNo': data.bankNo,
                     'bankName': data.bankName,

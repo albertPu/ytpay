@@ -1,6 +1,6 @@
 package com.ty.web.controller.web
 
-import com.ty.web.remote.ServiceFeign
+import com.ty.web.feign.ServiceFeign
 import com.yt.appcommon.WebPath
 import com.yt.appcommon.base.BaseController
 import com.yt.appcommon.utils.gson

@@ -1,4 +1,16 @@
 spring:
+  redis:
+    #地址
+    host: localhost
+    #端口
+    port: 6379
+    #索引库
+    database: 1
+    #密码
+    password:
+    #超时时间
+    timeout: 5000ms
+    #其他配置
   datasource:
     # 使用阿里的Druid连接池
     type: com.alibaba.druid.pool.DruidDataSource

@@ -21,12 +21,15 @@ fun <T : Table> ResultRow.toJson(tables: Array<T>): String {
     tables.forEach { table ->
         if (fieldsMaps.containsKey(table::class.java.name)) {
             fieldsMaps[table::class.java.name]?.forEach { field ->
+
                 if (field.type.name == Column::class.java.name) {
                     field.isAccessible = true
                     val column = field.get(table)
                     val value = get(column as Column<*>)
-                    val key = field.name
-                    stringBuilder.append("\"${key}\":\"${value}\",")
+                    val key = "\"${field.name}\""
+                    if (!stringBuilder.contains(key)) {
+                        stringBuilder.append("${key}:\"${value}\",")
+                    }
                 }
             }
 
@@ -38,8 +41,10 @@ fun <T : Table> ResultRow.toJson(tables: Array<T>): String {
                     fieldsMaps[table::class.java.name]?.add(field)
                     val column = field.get(table)
                     val value = get(column as Column<*>)
-                    val key = field.name
-                    stringBuilder.append("\"${key}\":\"${value}\",")
+                    val key = "\"${field.name}\""
+                    if (!stringBuilder.contains(key)) {
+                        stringBuilder.append("${key}:\"${value}\",")
+                    }
                 }
             }
         }

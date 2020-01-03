@@ -2,7 +2,7 @@ package com.ty.web.controller.web
 
 import com.yt.appcommon.base.BaseController
 import com.ty.web.glob.WebException
-import com.ty.web.remote.ServiceFeign
+import com.ty.web.feign.ServiceFeign
 import com.yt.appcommon.WebPath
 import com.yt.appcommon.vo.LoginVoRequest
 import org.springframework.beans.factory.annotation.Autowired
@@ -38,10 +38,13 @@ class LoginRestfulController : BaseController() {
     var loginService: ServiceFeign? = null
 
     @PostMapping(WebPath.loginUrl)
-    fun loginUser(@RequestBody login: LoginVoRequest, request: HttpServletRequest): String {
+    fun loginUser(@RequestBody login: LoginVoRequest, request: HttpServletRequest): Any {
         val response = loginService?.getLoin(login) ?: throw WebException("用户名或密码错误")
+        if (!response.success){
+            throw WebException("用户名或密码错误")
+        }
         request.session?.setAttribute(WebPath.sessionId, response.data)
-        return succees()
+        return succeesData()
     }
 }
 
