@@ -1,9 +1,8 @@
-
-group = 'com.ty'
+group = 'com.yt'
 version = '0.0.1-SNAPSHOT'
 description = """web"""
 
 dependencies {
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:"${springBootVersion}"
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.2.RELEASE'
     implementation project(':appcommon')
 }

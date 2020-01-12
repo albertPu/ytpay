@@ -197,9 +197,9 @@
     <orderEntry type="library" name="Gradle: org.springframework.cloud:spring-cloud-context:2.2.0.M2" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest-core:2.1" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-rsa:1.0.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-servlet:1.19.1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.amazonaws:jmespath-java:1.11.277" level="project" />
     <orderEntry type="library" name="Gradle: org.hamcrest:hamcrest:2.1" level="project" />
-    <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-servlet:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: org.mockito:mockito-core:3.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-server:1.19.1" level="project" />
     <orderEntry type="library" name="Gradle: com.sun.jersey:jersey-client:1.19.1" level="project" />
