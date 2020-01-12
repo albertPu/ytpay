@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: org.jetbrains.exposed:exposed:0.17.7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/exposed/exposed/0.17.7/exposed-0.17.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
