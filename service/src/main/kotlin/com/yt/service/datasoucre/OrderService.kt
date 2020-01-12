@@ -3,15 +3,13 @@ package com.yt.service.datasoucre
 import com.yt.appcommon.utils.toTable
 import com.yt.appcommon.utils.toTye
 import com.yt.appcommon.vo.OrderVO
-import com.yt.service.annotation.Operate
-import com.yt.service.annotation.RedisCache
+import com.yt.appcommon.annotation.Operate
+import com.yt.appcommon.annotation.RedisCache
 import com.yt.service.entiy.Banks
 import com.yt.service.entiy.Merchant
 import com.yt.service.entiy.Orders
-import com.yt.service.mq.Sender
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
@@ -23,8 +21,8 @@ import java.math.BigDecimal
 @RedisCache(nameSpace = "OrderService")
 class OrderService {
 
-    @Autowired
-    lateinit var mqSender: Sender
+   /* @Autowired
+    lateinit var mqSender: Sender*/
 
 
     @RedisCache
@@ -41,6 +39,9 @@ class OrderService {
                 query.andWhere { Orders.payState eq it }
             }
 
+            orderVo?.bankEndNo?.let {
+                query.andWhere { Banks.bankNo like "%$it" }
+            }
             query.toSet().forEach {
                 val ordervo = it.toTye(OrderVO::class.java, Orders, Banks)
                 order.add(ordervo)
@@ -50,7 +51,8 @@ class OrderService {
     }
 
     @RedisCache(operate = Operate.INSET)
-    fun saveOrUpdate(order: OrderVO) {
+    fun saveOrUpdate(order: OrderVO?) {
+        if (order==null)return
         transaction {
             if (order.id != null) {
                 Orders.update({ Orders.id eq (order.id ?: 0) }) {
@@ -60,7 +62,7 @@ class OrderService {
                 Orders.insert {
                     it.toTable(this, order)
                 }
-                mqSender.sendDelayMessageByPlugins(order.orderNo, 10000)
+              //  mqSender.sendDelayMessageByPlugins(order.orderNo, 10000)
             }
         }
 

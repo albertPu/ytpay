@@ -23,6 +23,7 @@ class MyExceptionHandler {
         } else {
             error.message = e.message ?: ""
         }
+        e.printStackTrace()
         return error
     }
 

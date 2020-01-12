@@ -1,0 +1,8 @@
+group = 'com.yt'
+version = '0.0.1-SNAPSHOT'
+description = """pay"""
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.2.RELEASE'
+    implementation project(':appcommon')
+}

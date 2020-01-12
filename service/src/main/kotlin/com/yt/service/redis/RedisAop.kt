@@ -1,8 +1,8 @@
 package com.yt.service.redis
 
+import com.yt.appcommon.annotation.Operate
+import com.yt.appcommon.annotation.RedisCache
 import com.yt.appcommon.utils.gson
-import com.yt.service.annotation.Operate
-import com.yt.service.annotation.RedisCache
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.Around
 import org.aspectj.lang.annotation.Aspect
@@ -67,13 +67,15 @@ class RedisAop {
         //获取目标方法的方法名称
         val methodName = joinPoint.signature.name
         val returnType = (joinPoint.signature as? MethodSignature)?.returnType
+        val methodGenericReturnType = (joinPoint.signature as? MethodSignature)?.method?.genericReturnType
 
         //redis中key格式：
         val redisKey: String = (if (StringUtils.isEmpty(classNameSpace + nameSpace)) className else classNameSpace + nameSpace) + applId.toString() + methodName
 
         val obj = stringRedisTemplate.opsForValue().get(redisKey)
         if (obj != null) {
-            return gson.fromJson(obj, returnType)
+            val data = gson.fromJson<Any>(obj, methodGenericReturnType)
+            return data
         }
 
         val o = joinPoint.proceed()

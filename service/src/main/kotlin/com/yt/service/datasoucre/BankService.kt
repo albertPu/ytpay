@@ -48,7 +48,8 @@ class BankService {
         return banks
     }
 
-    fun saveOrUpdate(bank: BankVO) {
+    fun saveOrUpdate(bank: BankVO?) {
+        if (bank==null)return
         transaction {
             if (bank.id != null) {
                 Banks.update({ Banks.id eq (bank.id ?: 0) }) {

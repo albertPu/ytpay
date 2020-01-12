@@ -34,6 +34,10 @@ object WebPath {
 
     const val payByBank = "/pay/bank.html"
     const val payByPreBank = "/pay/bankpre"
+    const val payBySuccess="/pay/banksuccess"
     const val payServiceBank = "service/api/paybank"
     const val payServiceQueryOrder = "service/api/payquery"
+    const val payServiceSuccess="service/api/paysuccess"
+
+
 }

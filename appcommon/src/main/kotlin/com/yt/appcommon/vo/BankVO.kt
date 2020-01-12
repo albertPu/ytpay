@@ -8,13 +8,13 @@ class BankVO {
     val id: Long? = null
     val bankUserName: String? = null
     val bankCode: String? = null
-    val bankNo: String? = null
+    var bankNo: String? = null
     val bankName: String? = null
     val bankAddress: String? = null
-    val todyMoney = 0.0
-    val totalMoney = 0.0
+    var todyMoney = 0.0
+    var totalMoney = 0.0
     val preDayLimitMoney = 0.0
-    val bankBalance: String? = null
+    var bankBalance: String? = null
     val bankPhoneNo: String? = null
 
 }

@@ -9,7 +9,12 @@ spring:
     name: web_pay
 
 server:
-  port: 8081
+  port: 6060
+
+
+ribbon:
+  ReadTimeout: 120000  #处理超时时间 默认5秒
+  ConnectTimeout: 120000 #连接超时时间 默认2秒
 
 eureka:
   client:
@@ -24,3 +29,5 @@ management:
   health:
     rabbit:
       enabled: false
+
+

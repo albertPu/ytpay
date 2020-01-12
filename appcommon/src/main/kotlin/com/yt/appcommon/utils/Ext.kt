@@ -1,6 +1,7 @@
 package com.yt.appcommon.utils
 
 import com.google.gson.Gson
+import com.yt.appcommon.annotation.DataMapping
 import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.Table
@@ -21,16 +22,15 @@ fun <T : Table> ResultRow.toJson(tables: Array<T>): String {
     tables.forEach { table ->
         if (fieldsMaps.containsKey(table::class.java.name)) {
             fieldsMaps[table::class.java.name]?.forEach { field ->
-
-                if (field.type.name == Column::class.java.name) {
-                    field.isAccessible = true
-                    val column = field.get(table)
-                    val value = get(column as Column<*>)
-                    val key = "\"${field.name}\""
-                    if (!stringBuilder.contains(key)) {
-                        stringBuilder.append("${key}:\"${value}\",")
+                    if (field.type.name == Column::class.java.name) {
+                        field.isAccessible = true
+                        val column = field.get(table)
+                        val value = get(column as Column<*>)
+                        val key = "\"${field.name}\""
+                        if (!stringBuilder.contains(key)) {
+                            stringBuilder.append("${key}:\"${value}\",")
+                        }
                     }
-                }
             }
 
         } else {
@@ -85,15 +85,18 @@ fun <T : Table> UpdateBuilder<Number>.toTable(table: T, value: Any) {
 
     tabFields.forEach { tableField ->
         val valuefield = valueFields.firstOrNull { it.name == tableField.name }
-        val column = tableField.get(table)
-        if (column != null) {
-            val nullable = (column as Column<Any>).columnType.nullable
-            var invokeValue = valuefield?.get(value)
-            if (invokeValue != null && invokeValue::class.java.isEnum) {
-                invokeValue = (invokeValue as Enum<*>).ordinal
-            }
-            if (!(invokeValue == null && !nullable) && invokeValue != null) {
-                set(column, invokeValue)
+        val dataMapping = valuefield?.getAnnotation(DataMapping::class.java)
+        if (dataMapping==null || !dataMapping.ignoreVo2Data){
+            val column = tableField.get(table)
+            if (column != null) {
+                val nullable = (column as Column<Any>).columnType.nullable
+                var invokeValue = valuefield?.get(value)
+                if (invokeValue != null && invokeValue::class.java.isEnum) {
+                    invokeValue = (invokeValue as Enum<*>).ordinal
+                }
+                if (!(invokeValue == null && !nullable) && invokeValue != null) {
+                    set(column, invokeValue)
+                }
             }
         }
     }

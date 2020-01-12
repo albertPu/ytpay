@@ -1,0 +1,8 @@
+group = 'com.yt'
+version = '0.0.1-SNAPSHOT'
+description = """gateway"""
+
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-gateway', version: '2.2.0.M2'
+}

@@ -17,13 +17,11 @@ interface ServiceFeign {
     fun getLoin(@RequestBody login: LoginVoRequest): BaseResponse<MerchantVO?>
 
 
-
     @PostMapping(value = [WebPath.bankServiceList])
     fun banksList(@RequestBody(required = false) bank: BankVO?): BaseResponse<ArrayList<BankVO>>
 
     @PostMapping(value = [WebPath.bankServiceListSave])
     fun bankSaveOrUpdate(@RequestBody bank: BankVO)
-
 
 
     @PostMapping(value = [WebPath.orderServiceList])
